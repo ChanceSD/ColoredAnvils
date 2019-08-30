@@ -19,8 +19,10 @@ public class AnvilTask extends BukkitRunnable {
 
 	@Override
 	public void run() {
-		if (this.inv.getViewers().size() == 0)
+		if (this.inv.getViewers().size() == 0) {
 			cancel();
+			anvilTasks.remove(inv);
+		}
 		ColorHandler.getTranslatedItem(this.player, this.inv);
 	}
 

@@ -15,9 +15,9 @@ public class RepairListener implements org.bukkit.event.Listener {
 		if ((event.getInventory().getType() == InventoryType.ANVIL) && ((event.getWhoClicked() instanceof Player))) {
 			Player player = (Player) event.getWhoClicked();
 			AnvilInventory inv = (AnvilInventory) event.getInventory();
-			// AnvilTask task = AnvilTask.getTask(inv);
-			// if (task == null)
-			// task = new AnvilTask(inv, player);
+			AnvilTask task = AnvilTask.getTask(inv);
+			if (task == null)
+				task = new AnvilTask(inv, player);
 			if (event.getRawSlot() == 2) {
 				ItemStack translatedItem = ColorHandler.getTranslatedItem(player, inv);
 				List<String> illegalWords = FilterHandler.getIllegalWordsInItemName(translatedItem);
