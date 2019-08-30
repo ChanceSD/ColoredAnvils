@@ -8,6 +8,7 @@ public class ColoredAnvils extends org.bukkit.plugin.java.JavaPlugin {
 	private static boolean permissions;
 	private static boolean permissionsForNonNameChanges;
 	private static boolean filters;
+	private static String filterMessage;
 
 	@Override
 	public void onEnable() {
@@ -20,6 +21,7 @@ public class ColoredAnvils extends org.bukkit.plugin.java.JavaPlugin {
 		permissions = getConfig().getBoolean("Use Permissions");
 		permissionsForNonNameChanges = getConfig().getBoolean("Use_Permissions_If_Not_Changing_Name");
 		filters = getConfig().getBoolean("Filter_Enabled");
+		filterMessage = getConfig().getString("Filter_Message");
 		getLogger().info("Permissions for " + pdfFile.getName() + " are " + (usingPermissions() ? "enabled" : "disabled") + ".");
 	}
 
@@ -45,6 +47,10 @@ public class ColoredAnvils extends org.bukkit.plugin.java.JavaPlugin {
 		return filters;
 	}
 
+	public static String getFilterMessage() {
+		return filterMessage;
+	}
+
 	public static void updateConfig() {
 		Map<String, Object> map = getPlugin().getConfig().getValues(false);
 		if (!map.containsKey("Use_Permissions_If_Not_Changing_Name"))
@@ -53,6 +59,8 @@ public class ColoredAnvils extends org.bukkit.plugin.java.JavaPlugin {
 			getPlugin().getConfig().set("Filter_Enabled", Boolean.valueOf(false));
 		if (!map.containsKey("Filter"))
 			getPlugin().getConfig().set("Filter", new String[] { "Filter", "Example" });
+		if (!map.containsKey("Filter_Message"))
+			getPlugin().getConfig().set("Filter_Message", "Your item cannot contain the word ");
 		getPlugin().saveConfig();
 	}
 }

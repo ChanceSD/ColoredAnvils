@@ -25,7 +25,7 @@ public class RepairListener implements org.bukkit.event.Listener {
 					event.setCancelled(true);
 					player.setExp(player.getExp());
 					for (String word : illegalWords)
-						player.sendMessage(ChatColor.RED + "Your item cannot contain the word " + ChatColor.BOLD + word + ChatColor.RED + ".");
+						player.sendMessage(ChatColor.RED + ColoredAnvils.getFilterMessage() + ChatColor.BOLD + word + ChatColor.RED + ".");
 				}
 				event.setCurrentItem(translatedItem);
 			}

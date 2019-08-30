@@ -1,6 +1,7 @@
 Use Permissions: false
 Use_Permissions_If_Not_Changing_Name: false
 Filter_Enabled: false
+Filter_Message: 'Your item cannot contain the word '
 Filter:
   - Filter
   - Example
