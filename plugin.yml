@@ -1,7 +1,7 @@
 name: ColoredAnvils
 main: me.flamingkatana.coloredanvils.ColoredAnvils
 version: 1.09
-author: flamingkatana, NoChanceSD
+author: Flaming_Katana, NoChanceSD
 api-version: 1.14
 permissions:
     coloredanvils.*:
